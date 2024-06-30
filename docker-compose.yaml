@@ -1,0 +1,24 @@
+services:
+  desynced:
+    image: artymares/desynced-server
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      - TZ=Europe/Moscow
+    volumes:
+      - type: bind
+        source: /your/host/vrising/server
+        target: /mnt/vrising/server
+        bind:
+          create_host_path: true
+      - type: bind
+        source: /your/host/vrising/persistentdata
+        target: /mnt/vrising/persistentdata
+        bind:
+          create_host_path: true
+    ports:
+      - '10099:10099/udp'
+      - '27015:27015/udp'
+    restart: unless-stopped
+    network_mode: bridge

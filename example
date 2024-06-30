@@ -1,0 +1,1 @@
+DesyncedServer.exe "R:\q.desynced" -SessionSettings="{ 'name': 'My Server', 'players': 8, 'visibility': 'private', 'allow_faction_switch': true }" -GameSettings="{ 'resource_richness': 3, 'peaceful': 2 }"

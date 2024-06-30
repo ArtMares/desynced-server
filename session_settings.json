@@ -1,0 +1,10 @@
+{
+  'name': 'My Server',
+  'players': 8,
+  'visibility': 'private',
+  'allow_faction_switch': true,
+  'run_without_players': false,
+  'password': 'secret',
+  'mode': 'Separate/Versus',
+  'block_unlocked_behaviors': true
+}

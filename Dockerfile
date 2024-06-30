@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 LABEL maintainer="ArtMares"
-VOLUME ["/mnt/vrising/server", "/mnt/vrising/persistentdata"]
+VOLUME ["/mnt/desynced/server", "/mnt/desynced/persistentdata"]
 
 ARG DEBIAN_FRONTEND="noninteractive"
 RUN apt update -y && \

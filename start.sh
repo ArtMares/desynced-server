@@ -102,7 +102,7 @@ Xvfb :0 -screen 0 1024x768x16 &
 echo "Launching wine64 Desynced"
 echo " "
 v() {
-	DISPLAY=:0.0 wine64 /mnt/vrising/server/DesyncedServer.exe -persistentDataPath $p -serverName "$SERVERNAME" "$override_savename" -logFile "$p/$logfile" "$game_port" "$query_port" 2>&1 &
+	DISPLAY=:0.0 wine64 /mnt/desynced/server/DesyncedServer.exe -persistentDataPath $p -serverName "$SERVERNAME" "$override_savename" -logFile "$p/$logfile" "$game_port" "$query_port" 2>&1 &
 }
 v
 # Gets the PID of the last command

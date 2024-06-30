@@ -1,19 +1,16 @@
 services:
   desynced:
-    image: artymares/desynced-server
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    image: artmares/desynced-server
     environment:
       - TZ=Europe/Moscow
     volumes:
       - type: bind
-        source: /your/host/vrising/server
+        source: ./desynced/server
         target: /mnt/vrising/server
         bind:
           create_host_path: true
       - type: bind
-        source: /your/host/vrising/persistentdata
+        source: ./desynced/persistentdata
         target: /mnt/vrising/persistentdata
         bind:
           create_host_path: true

@@ -60,26 +60,26 @@ echo " "
 printf "steam_appid: "
 cat "$s/steam_appid.txt"
 
-echo " "
-if ! grep -q -o 'avx[^ ]*' /proc/cpuinfo; then
-	unsupported_file="VRisingServer_Data/Plugins/x86_64/lib_burst_generated.dll"
-	echo "AVX or AVX2 not supported; Check if unsupported ${unsupported_file} exists"
-	if [ -f "${s}/${unsupported_file}" ]; then
-		echo "Changing ${unsupported_file} as attempt to fix issues..."
-		mv "${s}/${unsupported_file}" "${s}/${unsupported_file}.bak"
-	fi
-fi
+#echo " "
+#if ! grep -q -o 'avx[^ ]*' /proc/cpuinfo; then
+#	unsupported_file="VRisingServer_Data/Plugins/x86_64/lib_burst_generated.dll"
+#	echo "AVX or AVX2 not supported; Check if unsupported ${unsupported_file} exists"
+#	if [ -f "${s}/${unsupported_file}" ]; then
+#		echo "Changing ${unsupported_file} as attempt to fix issues..."
+#		mv "${s}/${unsupported_file}" "${s}/${unsupported_file}.bak"
+#	fi
+#fi
 
-echo " "
-mkdir "$p/Settings" 2>/dev/null
-if [ ! -f "$p/Settings/ServerGameSettings.json" ]; then
-	echo "$p/Settings/ServerGameSettings.json not found. Copying default file."
-	cp "$s/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json" "$p/Settings/" 2>&1
-fi
-if [ ! -f "$p/Settings/ServerHostSettings.json" ]; then
-	echo "$p/Settings/ServerHostSettings.json not found. Copying default file."
-	cp "$s/VRisingServer_Data/StreamingAssets/Settings/ServerHostSettings.json" "$p/Settings/" 2>&1
-fi
+#echo " "
+#mkdir "$p/Settings" 2>/dev/null
+#if [ ! -f "$p/Settings/ServerGameSettings.json" ]; then
+#	echo "$p/Settings/ServerGameSettings.json not found. Copying default file."
+#	cp "$s/VRisingServer_Data/StreamingAssets/Settings/ServerGameSettings.json" "$p/Settings/" 2>&1
+#fi
+#if [ ! -f "$p/Settings/ServerHostSettings.json" ]; then
+#	echo "$p/Settings/ServerHostSettings.json not found. Copying default file."
+#	cp "$s/VRisingServer_Data/StreamingAssets/Settings/ServerHostSettings.json" "$p/Settings/" 2>&1
+#fi
 
 # Checks if log file exists, if not creates it
 current_date=$(date +"%Y%m%d-%H%M")

@@ -1,21 +1,24 @@
 services:
   desynced:
-    image: artmares/desynced-server
+    image: artmares/desynced-server:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile.steam
     environment:
       - TZ=Europe/Moscow
     volumes:
       - type: bind
         source: ./desynced/server
-        target: /mnt/vrising/server
+        target: /mnt/desynced/server
         bind:
           create_host_path: true
       - type: bind
         source: ./desynced/persistentdata
-        target: /mnt/vrising/persistentdata
+        target: /mnt/desynced/persistentdata
         bind:
           create_host_path: true
     ports:
       - '10099:10099/udp'
       - '27015:27015/udp'
-    restart: unless-stopped
+#    restart: unless-stopped
     network_mode: bridge

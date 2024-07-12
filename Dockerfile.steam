@@ -1,0 +1,22 @@
+FROM steamcmd/steamcmd:ubuntu-22
+LABEL maintainer="ArtMares"
+VOLUME ["/mnt/desynced/server", "/mnt/desynced/persistentdata"]
+
+ARG DEBIAN_FRONTEND="noninteractive"
+RUN apt update -y && \
+    apt-get upgrade -y
+
+RUN apt install -y wine \
+                   winbind \
+                   winetricks
+RUN apt install -y xserver-xorg \
+                   xvfb
+RUN rm -rf /var/lib/apt/lists/* && \
+    apt clean && \
+    apt autoremove -y
+
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+EXPOSE 10099
+EXPOSE 27015
+CMD ["/start.sh"]
